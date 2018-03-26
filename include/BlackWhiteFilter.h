@@ -7,13 +7,13 @@
 extern int g_VFVAPIVersion;
 
 class BlackWhiteFilter : public VDXVideoFilter {
-public:
-	virtual uint32 GetParams();
-	virtual void Start();
-	virtual void Run();
+	public:
+		virtual uint32 GetParams();
+		virtual void Start();
+		virtual void Run();
 
-protected:
-	void ToBlackAndWhite(void *dst, ptrdiff_t dstpitch, const void *src, ptrdiff_t srcpitch, uint32 w, uint32 h);
+	protected:
+		void ToBlackAndWhite(void *dst, ptrdiff_t dstpitch, const void *src, ptrdiff_t srcpitch, uint32 w, uint32 h);
 };
 
 #endif 

@@ -11,11 +11,11 @@ uint32 BlackWhiteFilter::GetParams() {
 	}
 
 	fa->dst.offset = 0;
-	return FILTERPARAM_SWAP_BUFFERS;
+	return FILTERPARAM_SWAP_BUFFERS | FILTERPARAM_PURE_TRANSFORM;
 }
 
 void BlackWhiteFilter::Start() {
-
+	// Do here some check before filter running, detect SSE or AMD64 for example
 }
 
 void BlackWhiteFilter::Run() {
@@ -35,5 +35,19 @@ void BlackWhiteFilter::Run() {
 }
 
 void BlackWhiteFilter::ToBlackAndWhite(void *dst0, ptrdiff_t dstpitch, const void *src0, ptrdiff_t srcpitch, uint32 w, uint32 h) {
-
+	char *dst = (char *)dst0;
+	const char *src = (const char *)src0;
+	for (uint32 y = 0; y<h; ++y) {
+		// Get scanline
+		uint32 *srcline = (uint32 *)src;
+		uint32 *dstline = (uint32 *)dst;
+		for (uint32 x = 0; x<w; ++x) {
+			// Process pixels
+			uint32 data = srcline[x];
+			float gray = 0.299f * (data & 0x000000ff) + 0.587f * ((data & 0x0000ff00) >> 8) + 0.114f *((data & 0x00ff0000) >> 16);
+			dstline[x] = gray < 128 ? 0x00000000 : 0x00ffffff;
+		}
+		src += srcpitch;
+		dst += dstpitch;
+	}
 }
