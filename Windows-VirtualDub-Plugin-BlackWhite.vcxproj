@@ -165,6 +165,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\BlackWhiteFilter.h" />
+    <ClInclude Include="include\BlackWhiteFilterConfig.h" />
+    <ClInclude Include="include\BlackWhiteFilterDialog.h" />
+    <ClInclude Include="include\resource.h" />
     <ClInclude Include="include\stdafx.h" />
     <ClInclude Include="include\vd2\plugin\vdaudiofilt.h" />
     <ClInclude Include="include\vd2\plugin\vdinputdriver.h" />
@@ -175,14 +178,20 @@
     <ClInclude Include="include\vd2\VDXFrame\VideoFilter.h" />
     <ClInclude Include="include\vd2\VDXFrame\VideoFilterDialog.h" />
     <ClInclude Include="include\vd2\VDXFrame\VideoFilterEntry.h" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="resource2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\BlackWhiteFilterDialog.cpp" />
     <ClCompile Include="src\BlackWhiteFilter.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\stdafx.cpp" />
     <ClCompile Include="src\VideoFilter.cpp" />
     <ClCompile Include="src\VideoFilterDialog.cpp" />
     <ClCompile Include="src\VideoFilterEntry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

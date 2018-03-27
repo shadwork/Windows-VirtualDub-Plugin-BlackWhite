@@ -34,6 +34,11 @@ void BlackWhiteFilter::Run() {
 	}
 }
 
+bool BlackWhiteFilter::Configure(VDXHWND hwnd) {
+	BlackWhiteFilterDialog dlg(fa->ifp);
+	return dlg.Show((HWND)hwnd);
+}
+
 void BlackWhiteFilter::ToBlackAndWhite(void *dst0, ptrdiff_t dstpitch, const void *src0, ptrdiff_t srcpitch, uint32 w, uint32 h) {
 	char *dst = (char *)dst0;
 	const char *src = (const char *)src0;

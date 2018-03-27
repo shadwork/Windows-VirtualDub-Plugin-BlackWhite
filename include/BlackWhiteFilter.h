@@ -1,5 +1,6 @@
 #include <vd2/VDXFrame/VideoFilter.h>
 #include <vd2/VDXFrame/VideoFilterEntry.h>
+#include <BlackWhiteFilterDialog.h>
 
 #ifndef FILTER_VD_BLACK_WHITE
 #define FILTER_VD_BLACK_WHITE
@@ -11,7 +12,7 @@ class BlackWhiteFilter : public VDXVideoFilter {
 		virtual uint32 GetParams();
 		virtual void Start();
 		virtual void Run();
-
+		virtual bool Configure(VDXHWND hwnd);
 	protected:
 		void ToBlackAndWhite(void *dst, ptrdiff_t dstpitch, const void *src, ptrdiff_t srcpitch, uint32 w, uint32 h);
 };
