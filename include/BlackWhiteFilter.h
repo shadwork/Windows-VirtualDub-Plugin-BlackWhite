@@ -15,6 +15,7 @@ class BlackWhiteFilter : public VDXVideoFilter {
 		virtual bool Configure(VDXHWND hwnd);
 	protected:
 		void ToBlackAndWhite(void *dst, ptrdiff_t dstpitch, const void *src, ptrdiff_t srcpitch, uint32 w, uint32 h);
+		BlackWhiteFilterConfig mConfig;
 };
 
 #endif 

@@ -35,7 +35,7 @@ void BlackWhiteFilter::Run() {
 }
 
 bool BlackWhiteFilter::Configure(VDXHWND hwnd) {
-	BlackWhiteFilterDialog dlg(fa->ifp);
+	BlackWhiteFilterDialog dlg(mConfig, fa->ifp);
 	return dlg.Show((HWND)hwnd);
 }
 
@@ -50,7 +50,12 @@ void BlackWhiteFilter::ToBlackAndWhite(void *dst0, ptrdiff_t dstpitch, const voi
 			// Process pixels
 			uint32 data = srcline[x];
 			float gray = 0.299f * (data & 0x000000ff) + 0.587f * ((data & 0x0000ff00) >> 8) + 0.114f *((data & 0x00ff0000) >> 16);
-			dstline[x] = gray < 128 ? 0x00000000 : 0x00ffffff;
+			if (mConfig.mInvert == BST_UNCHECKED) {
+				dstline[x] = gray < mConfig.mTreshold ? 0x00000000 : 0x00ffffff;
+			}
+			else {
+				dstline[x] = gray >= mConfig.mTreshold ? 0x00000000 : 0x00ffffff;
+			}
 		}
 		src += srcpitch;
 		dst += dstpitch;

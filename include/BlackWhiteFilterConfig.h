@@ -1,3 +1,5 @@
+#include <windows.h>
+
 #ifndef FILTER_VD_BLACK_WHITE_CONFIG
 #define FILTER_VD_BLACK_WHITE_CONFIG
 
@@ -6,7 +8,7 @@ public:
 	BlackWhiteFilterConfig()
 	{
 		mTreshold = 128;
-		mInvert = 0;
+		mInvert = BST_UNCHECKED;
 	}
 
 public:
