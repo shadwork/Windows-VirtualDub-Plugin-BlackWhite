@@ -167,6 +167,7 @@
     <ClInclude Include="include\BlackWhiteFilter.h" />
     <ClInclude Include="include\BlackWhiteFilterConfig.h" />
     <ClInclude Include="include\BlackWhiteFilterDialog.h" />
+    <ClInclude Include="include\resource.h" />
     <ClInclude Include="include\stdafx.h" />
     <ClInclude Include="include\vd2\plugin\vdaudiofilt.h" />
     <ClInclude Include="include\vd2\plugin\vdinputdriver.h" />

@@ -5,12 +5,12 @@ class BlackWhiteFilterConfig {
 public:
 	BlackWhiteFilterConfig()
 	{
-		mTrehold = 128;
+		mTreshold = 128;
 		mInvert = 0;
 	}
 
 public:
-	int mTrehold;
+	int mTreshold;
 	int mInvert;
 };
 

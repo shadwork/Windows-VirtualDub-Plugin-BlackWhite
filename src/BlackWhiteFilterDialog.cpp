@@ -36,7 +36,6 @@ bool BlackWhiteFilterDialog::OnInit() {
 		EnableWindow(hwndPreview, TRUE);
 		mifp->InitButton((VDXHWND)hwndPreview);
 	}
-
 	return false;
 }
 
