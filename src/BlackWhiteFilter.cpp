@@ -61,3 +61,20 @@ void BlackWhiteFilter::ToBlackAndWhite(void *dst0, ptrdiff_t dstpitch, const voi
 		dst += dstpitch;
 	}
 }
+
+VDXVF_BEGIN_SCRIPT_METHODS(BlackWhiteFilter)
+VDXVF_DEFINE_SCRIPT_METHOD(BlackWhiteFilter, ScriptConfig, "ii")
+VDXVF_END_SCRIPT_METHODS()
+
+void BlackWhiteFilter::GetSettingString(char *buf, int maxlen) {
+	SafePrintf(buf, maxlen, " (Treshold:%d, Invert:%d)", mConfig.mTreshold, mConfig.mInvert);
+}
+
+void BlackWhiteFilter::GetScriptString(char *buf, int maxlen) {
+	SafePrintf(buf, maxlen, "Config(%d, %d)", mConfig.mTreshold, mConfig.mInvert);
+}
+
+void BlackWhiteFilter::ScriptConfig(IVDXScriptInterpreter *isi, const VDXScriptValue *argv, int argc) {
+	mConfig.mTreshold = argv[0].asInt();
+	mConfig.mInvert = argv[1].asInt();
+}

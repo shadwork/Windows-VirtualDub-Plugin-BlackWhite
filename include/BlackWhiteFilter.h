@@ -13,9 +13,13 @@ class BlackWhiteFilter : public VDXVideoFilter {
 		virtual void Start();
 		virtual void Run();
 		virtual bool Configure(VDXHWND hwnd);
+		virtual void GetSettingString(char *buf, int maxlen);
+		virtual void GetScriptString(char *buf, int maxlen);
+		VDXVF_DECLARE_SCRIPT_METHODS();
 	protected:
 		void ToBlackAndWhite(void *dst, ptrdiff_t dstpitch, const void *src, ptrdiff_t srcpitch, uint32 w, uint32 h);
 		BlackWhiteFilterConfig mConfig;
+		void ScriptConfig(IVDXScriptInterpreter *isi, const VDXScriptValue *argv, int argc);
 };
 
 #endif 
