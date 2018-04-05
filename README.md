@@ -2,7 +2,7 @@
 
 Windows-VirtualDub-Plugin-BlackWhite
 
-Using VDXFrame helper and Microsoft Visual Studio 2014 as build environment.
+Using VDXFrame helper and Microsoft Visual Studio 2015 as build environment.
 
 
 
